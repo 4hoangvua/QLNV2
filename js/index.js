@@ -59,7 +59,7 @@ var getWorker = function(account){
 }
 
 var updateWorker = function(){
-
+    if(!validate()) return;
     var account = document.getElementById("tknv").value;
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
