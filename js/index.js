@@ -38,6 +38,7 @@ var createWorker = function(){
 
 
 var getWorker = function(account){
+    deleteTB();
     var index = findByAccount(account);
     if(index === -1){
         alert("Nhân viên không tồn tại");
@@ -174,6 +175,17 @@ var findByAccount = function(account){
     return -1;
 }
 
+var deleteTB = function(){
+    document.getElementById("tbTKNV").style.display = "none";
+    document.getElementById("tbTen").style.display = "none";
+    document.getElementById("tbEmail").style.display = "none";
+    document.getElementById("tbMatKhau").style.display = "none";
+    document.getElementById("tbLuongCB").style.display = "none";
+    document.getElementById("tbChucVu").style.display = "none";
+    document.getElementById("tbNgay").style.display = "none";
+    document.getElementById("tbGiolam").style.display = "none";
+}
+
 workerList = mapData(workerList);
 renderWorker();
 getData();
@@ -216,7 +228,7 @@ var require = function(value, spanId){
         document.getElementById(spanId).innerHTML = "* Trường này bắt buộc nhập";
         return false;
     }
-    document.getElementById(spanId).innerHTML = "";
+    document.getElementById(spanId).style.display = "none";
         return true;
 }
 
@@ -226,7 +238,7 @@ var length = function(value, spanId, min, max, message){
         document.getElementById(spanId).innerHTML = message;
         return false;
     }
-    document.getElementById(spanId).innerHTML = "";
+    document.getElementById(spanId).style.display = "none";
     return true;
 }
 var limitNumber = function(value, spanId, min, max, message){
@@ -236,7 +248,7 @@ var limitNumber = function(value, spanId, min, max, message){
         document.getElementById(spanId).innerHTML = message;
         return false;
     }
-    document.getElementById(spanId).innerHTML = "";
+    document.getElementById(spanId).style.display = "none";
     return true;
 }
 
@@ -247,7 +259,7 @@ var pattern = function( value, spanId, regex){
         document.getElementById(spanId).innerHTML = "* Không đúng định dạng";
         return false;
     }
-    document.getElementById(spanId).innerHTML = "";
+    document.getElementById(spanId).style.display = "none";
     return true;
 }
 var positionWork = function(value, spanId, message){
@@ -256,6 +268,6 @@ var positionWork = function(value, spanId, message){
         document.getElementById(spanId).innerHTML = message;
         return false;
     }
-    document.getElementById(spanId).innerHTML = "";
+    document.getElementById(spanId).style.display = "none";
     return true;
 }
